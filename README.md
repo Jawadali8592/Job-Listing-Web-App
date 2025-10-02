@@ -3,7 +3,7 @@
 A full-stack job board application that displays actuarial job postings scraped from Actuary List, with full CRUD operations, filtering, and sorting capabilities.
 
 🎥 **Video Demo**  
-[[Link to Video Demo](https://drive.google.com/file/d/1FhhDwcDKk9Mmf1WqgDnpYK9OzcffvlPB/view?usp=sharing)
+[Click the Link For Video](https://drive.google.com/file/d/1FhhDwcDKk9Mmf1WqgDnpYK9OzcffvlPB/view?usp=sharing)
 
 ---
 
