@@ -113,9 +113,9 @@ cd backend
 python -m venv venv
 
 # Activate virtual environment
-# Windows:
+ Windows:
 venv\Scripts\activate
-# macOS/Linux:
+ macOS/Linux:
 source venv/bin/activate
 
 # Install dependencies
@@ -130,7 +130,7 @@ cd ../frontend
 
 # Install dependencies
 npm install
-# or
+or
 yarn install
 
 # Create .env file
@@ -146,15 +146,15 @@ Firefox: GeckoDriver
 
 Add the WebDriver to your system PATH or place it in the backend directory
 
-🚀 Running the Application
+# 🚀 Running the Application
 cd backend
 python app.py
 
-Start Frontend Development Server
+# Start Frontend Development Server
 
 cd frontend
 npm start
-# or
+ or
 yarn start
 
 Run the Web Scraper (Optional)
@@ -162,7 +162,7 @@ Run the Web Scraper (Optional)
 cd backend
 python scraper.py
 
-🤔 Assumptions & Design Decisions
+# 🤔 Assumptions & Design Decisions
 
 Job Type Default: Defaults to "Full-time" unless indicated otherwise
 
@@ -176,7 +176,7 @@ Scraping Limit: Only first 50-100 jobs scraped for demo purposes
 
 Client-Side Validation: Both client and server-side validation implemented
 
-🚧 Challenges & Solutions
+# 🚧 Challenges & Solutions
 Challenge 1: Dynamic Content Loading
 
 Problem: Actuary List uses infinite scroll/dynamic loading.
@@ -197,7 +197,7 @@ Challenge 4: Duplicate Prevention
 Problem: Multiple scraper runs created duplicates.
 Solution: Added duplicate checking logic using title + company.
 
-👨‍💻 Author
+# 👨‍💻 Author
 
 Jawad Ali
 Email: jsidd350@gmail.com
