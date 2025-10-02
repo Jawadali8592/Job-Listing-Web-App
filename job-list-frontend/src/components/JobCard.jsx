@@ -22,7 +22,7 @@ function timeAgoShort(dateString) {
   return `${years}y`;
 }
 
-export default function CoursesTwo({ item, onDelete,openModal }) {
+export default function JobCard({ item, onDelete,openModal }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
 
   const timeAgo = timeAgoShort(item.posting_date);

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Header from "./Header";
 import Pagination from "./Pagination";
-import CoursesTwo from "./CourseTwo";
 import CoursesSidebar from "./JobFiltersSidebar";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
@@ -9,8 +8,15 @@ import toast, { Toaster } from "react-hot-toast";
 import AddJobModal from "./JobPostModal";
 import JobFiltersComponent from "./JobFiltersComponent";
 import JobDetailsById from "./JobDetailsById";
+import JobCard from "./JobCard";
 
 export default function MainComponent() {
+   const API = axios.create({
+    baseURL: "http://127.0.0.1:5000/api",
+  });
+
+  const queryClient = useQueryClient();
+  
   const [currentPage, setCurrentPage] = useState(1);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
@@ -23,11 +29,7 @@ export default function MainComponent() {
     sort: "posting_date_desc",
   });
 
-  const API = axios.create({
-    baseURL: "http://127.0.0.1:5000/api",
-  });
-
-  const queryClient = useQueryClient();
+ 
 
   const fetchJobs = async (page, filterParams) => {
     const params = new URLSearchParams();
@@ -90,8 +92,7 @@ export default function MainComponent() {
     setCurrentPage(1);
   };
 
-
- const [selectedJobId, setSelectedJobId] = useState(null);
+  const [selectedJobId, setSelectedJobId] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = (id) => {
@@ -104,7 +105,6 @@ export default function MainComponent() {
     setSelectedJobId(null);
   };
 
-
   return (
     <>
       <Header setIsAddModalOpen={setIsAddModalOpen} />
@@ -114,7 +114,7 @@ export default function MainComponent() {
         onClose={() => setIsAddModalOpen(false)}
       />
 
-       <JobDetailsById
+      <JobDetailsById
         isOpen={isModalOpen}
         onClose={closeModal}
         jobId={selectedJobId}
@@ -123,12 +123,7 @@ export default function MainComponent() {
 
       <section className="relative py-12">
         <div className="container relative">
-          {/* Filter Component */}
-          {/* <JobFiltersComponent
-            filters={filters}
-            onFilterChange={handleFilterChange}
-            onClearFilters={clearFilters}
-          /> */}
+      
 
           <div className="grid md:grid-cols-12 grid-cols-1 gap-6">
             <div className="lg:col-span-8 md:col-span-8 md:order-1 order-2">
@@ -146,19 +141,14 @@ export default function MainComponent() {
                 <>
                   <div className="grid grid-cols-1 gap-6">
                     {jobs?.jobs?.map((item, index) => (
-                   
-                   <div
-            key={index}
-          >
-
-                   <CoursesTwo
-            openModal={openModal} // 👈 Open modal with job ID
-
-                        onDelete={() => mutation.mutate(item.id)}
-                        item={item}
-                        key={index}
+                      <div key={index}>
+                        <JobCard
+                          openModal={openModal} // 👈 Open modal with job ID
+                          onDelete={() => mutation.mutate(item.id)}
+                          item={item}
+                          key={index}
                         />
-                        </div>
+                      </div>
                     ))}
                   </div>
 
