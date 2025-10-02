@@ -84,27 +84,6 @@ This application provides a complete job listing platform with:
 - Selenium  
 - ChromeDriver/GeckoDriver  
 
----
-
-## 📁 Project Structure
-
-job-listing-app/
-├── backend/
-│ ├── app.py # Flask application entry point
-│ ├── models.py # SQLAlchemy models
-│ ├── routes.py # API routes
-│ ├── config.py # Configuration settings
-│ ├── scraper.py # Selenium scraping script
-│ └── requirements.txt # Python dependencies
-├── frontend/
-│ ├── src/
-│ │ ├── components/ # React components
-│ │ ├── App.js
-│ │ └── index.js
-│ ├── package.json
-│ └── public/
-├── README.md
-└── .env.example
 
 
 
@@ -124,7 +103,7 @@ Before running this application, ensure you have the following installed:
 ## ⚙️ Installation & Setup
 
 ### 1. Clone the Repository
-```bash
+bash
 git clone <your-repo-url>
 cd job-listing-app
 
