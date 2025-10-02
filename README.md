@@ -157,3 +157,69 @@ yarn install
 # Create .env file
 REACT_APP_API_URL=http://127.0.0.1:5000/api
 
+5. Selenium Setup
+
+Download the appropriate WebDriver for your browser:
+
+Chrome: ChromeDriver
+
+Firefox: GeckoDriver
+
+Add the WebDriver to your system PATH or place it in the backend directory
+
+🚀 Running the Application
+cd backend
+python app.py
+
+Start Frontend Development Server
+
+cd frontend
+npm start
+# or
+yarn start
+
+Run the Web Scraper (Optional)
+
+cd backend
+python scraper.py
+
+🤔 Assumptions & Design Decisions
+
+Job Type Default: Defaults to "Full-time" unless indicated otherwise
+
+Tags Storage: Stored as comma-separated strings (could be normalized for scalability)
+
+Posting Date: Relative dates like "2 days ago" are converted to ISO format when possible
+
+No Authentication: Out of scope for this project
+
+Scraping Limit: Only first 50-100 jobs scraped for demo purposes
+
+Client-Side Validation: Both client and server-side validation implemented
+
+🚧 Challenges & Solutions
+Challenge 1: Dynamic Content Loading
+
+Problem: Actuary List uses infinite scroll/dynamic loading.
+Solution: Used Selenium explicit waits, scrolling, and retry logic.
+
+Challenge 2: CORS Issues
+
+Problem: React frontend couldn't communicate with Flask backend.
+Solution: Configured Flask-CORS for cross-origin requests.
+
+Challenge 3: State Management
+
+Problem: Keeping UI synced with backend after CRUD operations.
+Solution: Implemented React Query for automatic cache invalidation and refetching.
+
+Challenge 4: Duplicate Prevention
+
+Problem: Multiple scraper runs created duplicates.
+Solution: Added duplicate checking logic using title + company.
+
+👨‍💻 Author
+
+Jawad Ali
+Email: jsidd350@gmail.com
+
